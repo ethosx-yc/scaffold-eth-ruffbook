@@ -5,12 +5,14 @@ pragma solidity ^0.8.10;
 import "./DS/DSGuard.sol";
 import "./DS/DSAuth.sol";
 
+import "hardhat/console.sol";
+
 /// @title ProxyPermission Proxy contract which works with DSProxy to give execute permission
 contract ProxyPermission {
     bytes4 public constant EXECUTE_SELECTOR =
         bytes4(keccak256("execute(address,bytes)"));
 
-    address constant FACTORY_ADDRESS = 0x610178dA211FEF7D417bC0e6FeD39F05609AD788;
+    address constant FACTORY_ADDRESS = 0xF7361F9e6fABaF7acB950fd8A26dB7Ab5A6852af;
 
     /// @notice Called in the context of DSProxy to authorize an address
     /// @param _contractAddr Address which will be authorized

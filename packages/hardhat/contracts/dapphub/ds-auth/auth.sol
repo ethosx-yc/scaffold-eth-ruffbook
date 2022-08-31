@@ -13,7 +13,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 pragma solidity >=0.4.23;
-
+import "hardhat/console.sol";
 interface DSAuthority {
     function canCall(
         address src, address dst, bytes4 sig
@@ -56,6 +56,9 @@ contract DSAuth is DSAuthEvents {
     }
 
     function isAuthorized(address src, bytes4 sig) internal view returns (bool) {
+        console.log("\nDSAuth");
+        console.log("Src: ", src);
+        console.logBytes4(sig);
         if (src == address(this)) {
             return true;
         } else if (src == owner) {

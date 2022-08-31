@@ -26,6 +26,9 @@ import "hardhat/console.sol";
 // useful to execute a sequence of atomic actions. Since the owner of
 // the proxy can be changed, this allows for dynamic ownership models
 // i.e. a multisig
+
+
+// Rinkeby Factory - 0x6cc22DA903F9426174D77BC311d074BC38137D90
 contract DSProxy is DSAuth, DSNote {
     DSProxyCache public cache;  // global cache for contracts
 
@@ -53,7 +56,7 @@ contract DSProxy is DSAuth, DSNote {
 
     function execute(address _target, bytes memory _data)
         public
-        // auth
+        auth
         note
         payable
         returns (bytes memory response)

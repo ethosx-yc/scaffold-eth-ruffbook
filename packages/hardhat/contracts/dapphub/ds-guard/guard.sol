@@ -20,6 +20,8 @@ pragma solidity >=0.4.23;
 import "../ds-auth/auth.sol";
 import "hardhat/console.sol";
 
+
+// Rinkeby Factory - 0xF7361F9e6fABaF7acB950fd8A26dB7Ab5A6852af
 contract DSGuardEvents {
     event LogPermit(
         bytes32 indexed src,
@@ -42,8 +44,9 @@ contract DSGuard is DSAuth, DSAuthority, DSGuardEvents {
     function canCall(
         address src_, address dst_, bytes4 sig
     ) public view returns (bool) {
-        console.log("src", src_);
-        console.log("dst", dst_);
+        console.log("\nDSGuard");
+        console.log("Src: ", src_);
+        console.log("Dst: ", dst_);
         console.logBytes4(sig);
 
         bytes32 src = bytes32(bytes20(src_));
